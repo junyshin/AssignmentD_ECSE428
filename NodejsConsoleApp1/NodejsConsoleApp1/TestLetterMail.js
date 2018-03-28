@@ -1,3 +1,10 @@
+QUnit.test("testRateCalc001", function (assert) {
+    assert.throws(
+        calculatePostage(90, 100, 30),
+        'length should be from 140mm to 380mm',
+        'Error thrown'
+    );
+});
 QUnit.test("testRateCalc007", function (assert) {
     assert.ok(0.49 == calculatePostage(200, 100, 10), "Passed!");
 });

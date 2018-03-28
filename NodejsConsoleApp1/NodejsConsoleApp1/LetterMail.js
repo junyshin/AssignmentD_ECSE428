@@ -2,15 +2,15 @@ function calculatePostage(length, width, weight) {
     var postage = 0.0;
 
     if (length < 140 || length > 380) {
-        window.alert("length should be from 140mm to 380mm");
+        //window.alert("length should be from 140mm to 380mm");
         throw "length should be from 140mm to 380mm";
     }
     if (width < 90 || width > 270) {
-        window.alert("width should be from 90m to 270mm");
+        //window.alert("width should be from 90m to 270mm");
         throw "width should be from 90m to 270mm";
     }
     if (weight < 3.0 || weight > 500.0) {
-        window.alert("Weight should be from 3g to 500g");
+        //window.alert("Weight should be from 3g to 500g");
         throw "Weight should be from 3g to 500g";
     }
 
