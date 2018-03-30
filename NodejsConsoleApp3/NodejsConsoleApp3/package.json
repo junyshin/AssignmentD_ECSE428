@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-console-app3",
+  "version": "0.0.0",
+  "description": "NodejsConsoleApp3",
+  "main": "app.js",
+  "author": {
+    "name": "Jun"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "jshamcrest": "^0.7.1",
+    "jsmockito": "^1.0.5",
+    "node-qunit": "^1.0.0",
+    "qunit": "^2.6.0"
+  }
+}

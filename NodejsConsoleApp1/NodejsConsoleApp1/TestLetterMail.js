@@ -1,9 +1,50 @@
 QUnit.test("testRateCalc001", function (assert) {
-    assert.throws(
-        calculatePostage(90, 100, 30),
-        'length should be from 140mm to 380mm',
-        'Error thrown'
-    );
+    try {
+        calculatePostage(90, 100, 30)
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("length should be from 140mm to 380mm" == errorCatched, "Passed!");
+});
+QUnit.test("testRateCalc002", function (assert) {
+    try {
+        calculatePostage(400, 100, 30);
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("length should be from 140mm to 380mm" == errorCatched, "Passed!");
+});
+QUnit.test("testRateCalc003", function (assert) {
+    try {
+        calculatePostage(140, 80, 30);
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("width should be from 90m to 270mm" == errorCatched, "Passed!");
+});
+QUnit.test("testRateCalc004", function (assert) {
+    try {
+        calculatePostage(140, 300, 30);
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("width should be from 90m to 270mm" == errorCatched, "Passed!");
+});
+QUnit.test("testRateCalc005", function (assert) {
+    try {
+        calculatePostage(140, 100, 1.0);
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("Weight should be from 3g to 500g" == errorCatched, "Passed!");
+});
+QUnit.test("testRateCalc006", function (assert) {
+    try {
+        calculatePostage(140, 100, 600.0);
+    } catch (e) {
+        var errorCatched = e;
+    }
+    assert.ok("Weight should be from 3g to 500g" == errorCatched, "Passed!");
 });
 QUnit.test("testRateCalc007", function (assert) {
     assert.ok(0.49 == calculatePostage(200, 100, 10), "Passed!");

@@ -10,6 +10,12 @@ const Product = {
     P7: "P7" 
 };
 
+module.exports = {
+    getGlobalDataCargoForm,
+    getGlobalDataCargoHeaders,
+    getGlobalDataCargoInput
+};
+
 function getGlobalDataCargoForm(cargo1, cargo2, cargo3, cargo4) {
     var result = [];
 

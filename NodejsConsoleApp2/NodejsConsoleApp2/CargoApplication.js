@@ -1,23 +1,25 @@
-﻿const program = require('commander');
-// Require logic.js file and extract controller functions using JS destructuring assignment
-const { addContact, getContact } = require('./GlobaDataCargo');
+﻿// CArgoApplication main program
+var argsSample = process.argv;
+var length = (process.argv.length - 2);
+var args = new Array(length);
+for (var j = 2; j < argsSample.length; j++) {
+    args[j-2] = String(argsSample[j]);
+}
+var EXPECTED_ARGUMENTS = 4;
 
-program
-    .version('0.0.1')
-    .description('Contact management system');
+if (args == null || args.length != EXPECTED_ARGUMENTS) {
+    throw "This application only accepts 4 arguments";
+}
 
-program
-    .command('addContact <firstame> <lastname> <phone> <email>')
-    .alias('a')
-    .description('Add a contact')
-    .action((firstname, lastname, phone, email) => {
-        addContact({ firstname, lastname, phone, email });
-    });
+var arguments = new Array(EXPECTED_ARGUMENTS);
+for (var i = 0; i < EXPECTED_ARGUMENTS; i++) {
+    arguments[i] = (args[i]=="true");
+}
+console.log(arguments);
 
-program
-    .command('getContact <name>')
-    .alias('r')
-    .description('Get contact')
-    .action(name => getContact(name));
+var cargo = require("./GlobaDataCargo.js");
+console.log(cargo.getGlobalDataCargoHeaders(arguments));
+console.log(cargo.getGlobalDataCargoInput(arguments));
 
-program.parse(process.argv);
+var result = cargo.getGlobalDataCargoForm(arguments[0], arguments[1], arguments[2], arguments[3]);
+console.log("Result: " + result);
